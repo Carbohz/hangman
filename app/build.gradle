@@ -11,6 +11,7 @@ plugins {
     id 'checkstyle'
     id 'com.github.spotbugs' version '6.0.6'
     id 'pmd'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 repositories {
@@ -50,3 +51,4 @@ tasks.named('test') {
 apply from: "$rootDir/gradle/checkstyle.gradle"
 apply from: "$rootDir/gradle/spotbugs.gradle"
 apply from: "$rootDir/gradle/pmd.gradle"
+apply from: "$rootDir/gradle/spotless.gradle"

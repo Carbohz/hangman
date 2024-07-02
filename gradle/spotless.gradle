@@ -1,0 +1,14 @@
+apply plugin: 'com.diffplug.spotless'
+
+spotless {
+    java {
+        importOrder()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+        indentWithSpaces(4)
+        formatAnnotations()
+        palantirJavaFormat('2.47.0').formatJavadoc(true)
+        toggleOffOn()
+    }
+}
