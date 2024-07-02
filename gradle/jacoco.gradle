@@ -1,0 +1,75 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    // sourceEncoding = 'UTF-8' // TODO раскомментировать https://github.com/gradle/gradle/pull/27121
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    // https://discuss.gradle.org/t/jacocotestreport-consistently-skipped-for-custom-test-tasks-but-not-standard-test-task/48010
+    executionData(test)
+}
+
+jacocoTestCoverageVerification {
+    executionData(test)
+    violationRules {
+        failOnViolation = false
+
+        rule {
+            limit {
+                counter = 'INSTRUCTION'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'COMPLEXITY'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'METHOD'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'CLASS'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+    }
+}
