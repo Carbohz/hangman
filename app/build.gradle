@@ -37,11 +37,6 @@ application {
     mainClass = 'study.org.carbohz.hangman.App'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
-
 apply from: "$rootDir/gradle/java.gradle"
 
 apply from: "$rootDir/gradle/test.gradle"
