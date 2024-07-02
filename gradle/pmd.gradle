@@ -1,0 +1,19 @@
+apply plugin: 'pmd'
+
+pmd {
+    consoleOutput = false
+    ignoreFailures = false
+    Provider<Directory> output = layout.buildDirectory.dir("reports/pmd/")
+    reportsDir = output.get().asFile
+    ruleSetFiles = files("${rootProject.projectDir}/config/pmd/pmd-ruleset.xml")
+    ruleSets = []
+    pmdMain {
+        excludes = [
+        ]
+    }
+
+    pmdTest {
+        excludes = [
+        ]
+    }
+}
