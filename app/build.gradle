@@ -43,6 +43,8 @@ tasks.named('test') {
 
 apply from: "$rootDir/gradle/java.gradle"
 
+apply from: "$rootDir/gradle/test.gradle"
+
 apply from: "$rootDir/gradle/checkstyle.gradle"
 apply from: "$rootDir/gradle/spotbugs.gradle"
 apply from: "$rootDir/gradle/pmd.gradle"
