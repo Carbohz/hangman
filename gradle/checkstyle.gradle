@@ -1,0 +1,14 @@
+apply plugin: 'checkstyle'
+
+tasks.withType(Checkstyle).configureEach {
+    configProperties = [
+            "main-suppressions-file" : file("${rootDir}/config/checkstyle/suppressions-main.xml"),
+            "test-suppressions-file" : file("${rootDir}/config/checkstyle/suppressions-test.xml")
+    ]
+
+    reports {
+        xml.required = false
+        html.required = true
+        html.stylesheet resources.text.fromFile("$rootProject.projectDir/config/checkstyle/checkstyle-simple.xsl")
+    }
+}
