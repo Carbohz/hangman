@@ -3,6 +3,12 @@
 
 [versions]
 junit-jupiter = "5.10.2"
+findsecbugs-plugin = "1.12.0"
+sb-contrib = "7.6.4"
+bug-pattern = "1.5.0"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+findsecbugs-plugin = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin" , version.ref = "findsecbugs-plugin"}
+sb-contrib = { module = "com.mebigfatguy.sb-contrib:sb-contrib", version.ref = "sb-contrib" }
+bug-pattern = { module = "jp.skypencil.findbugs.slf4j:bug-pattern", version.ref = "bug-pattern" }

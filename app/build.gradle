@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'checkstyle'
+    id 'com.github.spotbugs' version '6.0.6'
 }
 
 repositories {
@@ -20,6 +22,11 @@ dependencies {
     testImplementation libs.junit.jupiter
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // linters
+    spotbugsPlugins libs.findsecbugs.plugin
+    spotbugsPlugins libs.sb.contrib
+    spotbugsPlugins libs.bug.pattern
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -40,3 +47,4 @@ tasks.named('test') {
 }
 
 apply from: "$rootDir/gradle/checkstyle.gradle"
+apply from: "$rootDir/gradle/spotbugs.gradle"

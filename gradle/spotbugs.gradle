@@ -1,0 +1,29 @@
+apply plugin: 'com.github.spotbugs'
+
+spotbugsMain {
+    showProgress = true
+    showStackTraces = true
+    excludeFilter = file("${rootDir}/config/spotbugs/spotbugs-main-filter.xml")
+
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs-main.html")
+            stylesheet = "fancy-hist.xsl"
+        }
+    }
+}
+
+spotbugsTest {
+    showProgress = true
+    showStackTraces = true
+    excludeFilter = file("${rootDir}/config/spotbugs/spotbugs-test-filter.xml")
+
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs-test.html")
+            stylesheet = "fancy-hist.xsl"
+        }
+    }
+}
