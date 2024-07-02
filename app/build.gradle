@@ -31,13 +31,6 @@ dependencies {
     spotbugsPlugins libs.bug.pattern
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
-}
-
 application {
     // Define the main class for the application.
     mainClass = 'study.org.carbohz.hangman.App'
@@ -47,6 +40,8 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+apply from: "$rootDir/gradle/java.gradle"
 
 apply from: "$rootDir/gradle/checkstyle.gradle"
 apply from: "$rootDir/gradle/spotbugs.gradle"
