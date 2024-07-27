@@ -3,12 +3,25 @@
  */
 package study.org.carbohz.hangman;
 
+import study.org.carbohz.hangman.lib.Game;
+
+import java.io.InputStream;
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        final Game game = new Game();
+        final InputStream stream = System.in;
+        game.start(stream);
+
+//        final Scanner scanner = new Scanner(System.in);
+//        System.out.println("Введите число");
+//        final int i = scanner.nextInt();
+//        System.out.println("Вы ввели " + i);
+//        System.out.println(new App().getGreeting());
     }
 }
